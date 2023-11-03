@@ -16,6 +16,14 @@
 svg {
   fill: #767676;
 }
+.blurry-image {
+  filter: blur(10px);
+  transition: filter 0.5s ease;
+}
+
+.loaded {
+  filter: blur(0);
+}
 
 .con-like {
   --red: rgb(255, 50, 50);

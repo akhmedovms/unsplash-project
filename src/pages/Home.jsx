@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
 
 function Home() {
   const [input, setInput] = useState(
@@ -9,6 +10,7 @@ function Home() {
   const [inpText, setInputText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState([]);
+
   const {
     data: splash,
     isPending,
@@ -99,24 +101,31 @@ function Home() {
           </button>
         </form>
       </div>
-      <ul className="pt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2">
-        {data &&
-          data.map((spl) => {
+      {data.length > 0 ? (
+        <ul className="pt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2">
+          {data.map((spl) => {
             return (
               <li key={spl.id} className="grid-item">
                 <Link to={`/innerpage/${spl.id}`}>
                   <div className="rounded-sm">
                     <img
-                      className="w-full h-52 object-cover"
-                      src={spl.urls.small}
+                      className="w-full h-52 object-cover blurry-image"
+                      src={spl.urls.regular}
                       alt=""
+                      onLoad={(e) => {
+                        e.target.classList.remove("blurry-image");
+                        e.target.classList.add("loaded");
+                      }}
                     />
                   </div>
                 </Link>
               </li>
             );
           })}
-      </ul>
+        </ul>
+      ) : (
+        <Loading />
+      )}
       <div className="join flex justify-center pt-10">
         <button
           className="join-item btn"
