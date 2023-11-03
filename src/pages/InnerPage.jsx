@@ -99,8 +99,8 @@ function InnerPage() {
                 className="w-[70%] h-[500px] object-contain"
               />
             </div>
-            <div className="flex items-center justify-between">
-              <div className="flex gap-32 pt-5">
+            <div className="flex flex-col sm:flex-row items-center justify-between">
+              <div className="flex sm:flex-row gap-6 sm:gap-28 p-4 sm:p-6">
                 <p>
                   Views: <br />
                   <span>{Number(splash.views).toLocaleString()}</span>
@@ -115,19 +115,20 @@ function InnerPage() {
                 </p>
               </div>
               <div className="flex gap-2">
-                <button className="arrow-button gap-2 rounded-md px-3 py-1 ">
+                <button className="arrow-button gap-2 rounded-md px-3 py-1">
                   <FaShare />
                   Share
                 </button>
-                <button className="arrow-button gap-2 rounded-md px-3 py-1 ">
+                <button className="arrow-button gap-2 rounded-md px-3 py-1">
                   <AiFillInfoCircle />
                   Info
                 </button>
-                <button className="arrow-button gap-2 rounded-md px-3 py-1 ">
+                <button className="arrow-button gap-2 rounded-md px-3 py-1">
                   <BsThreeDots />
                 </button>
               </div>
             </div>
+
             <div>
               <div className="flex flex-col gap-1 pb-10">
                 <p className=" pt-10 pb-8">
