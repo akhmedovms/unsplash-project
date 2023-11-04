@@ -20,7 +20,7 @@ function InnerPage() {
     <div className="mt-10 p-3 shadow-lg">
       {splash && (
         <div key={id}>
-          <div className="flex gap-4 pb-5 items-center">
+          <div className="flex gap-4 pb-5 items-center ">
             <img
               className="rounded-full object-cover w-[50px] h-[50px]"
               src={splash.user.profile_image.large}
@@ -74,19 +74,24 @@ function InnerPage() {
               </Link>
               <ul className="border-[1] p-1 mt-4 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                 <li>
-                  <a>
+                  <Link to={splash.urls.small}>
                     <span>Small</span> (640 x 960)
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a>
+                  <Link to={splash.urls.regular}>
                     <span>Medium</span> (1920 x 2880)
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a>
+                  <Link to={splash.urls.full}>
                     <span>Large</span> (2400 x 3600)
-                  </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={splash.urls.raw}>
+                    <span>Original Size</span>
+                  </Link>
                 </li>
               </ul>
             </div>

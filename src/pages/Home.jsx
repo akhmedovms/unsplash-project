@@ -8,6 +8,7 @@ function Home() {
     () => localStorage.getItem("input") || "features"
   );
   const [inpText, setInputText] = useState("");
+
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState([]);
 
