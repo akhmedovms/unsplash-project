@@ -72,13 +72,10 @@ function InnerPage() {
                 <AiOutlinePlus />
               </button>
             </div>
-            <div className="dropdown dropdown-end dropdown-hover">
-              <Link
-                to={splash.links.download}
-                className="m-1 p-2 border-[1px]  rounded-md"
-              >
+            <div className="dropdown dropdown-end">
+              <button className="m-1 p-2 border-[1px]  rounded-md cursor-pointer">
                 Download
-              </Link>
+              </button>
               <ul className="border-[1] p-1 mt-4 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                 <li>
                   <Link to={splash.urls.small}>

@@ -9,7 +9,7 @@ function LikedPhotos() {
   console.log(likedPhotos);
   return (
     <div>
-      <h1>Liked Photos</h1>
+      <h1 className="text-5xl text-center">Liked Photos ❤️</h1>
       <Galerey data={likedPhotos} />
 
       {likedPhotos.length === 0 && (
