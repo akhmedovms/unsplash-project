@@ -10,11 +10,14 @@ import {
 } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
+import { addLikedPhoto } from "../redux/features/unsplashSlice";
+import { useDispatch } from "react-redux";
 
 function InnerPage() {
   const { id } = useParams();
   const url = `https://api.unsplash.com/photos/${id}?client_id=e9CrxcxKcoAoK0qKDWkSVor9gpnKoe2F3MAcNwWL6Zs`;
   const { data: splash, isPending, error } = useFetch(url);
+  const dispatch = useDispatch();
 
   return (
     <div className="mt-10 p-3 shadow-lg">
@@ -30,7 +33,11 @@ function InnerPage() {
               <p>{splash.user.name}</p>
               <p>Avaiable for hire ✅</p>
             </div>
-            <div className=" p-2 rounded-md border-[1px] ">
+
+            <button
+              className=" p-2 rounded-md border-[1px]"
+              onClick={() => dispatch(addLikedPhoto(splash))}
+            >
               <div className="con-like">
                 <input className="like " type="checkbox" title="like" />
                 <div className="checkmark">
@@ -59,7 +66,7 @@ function InnerPage() {
                   </svg>
                 </div>
               </div>
-            </div>
+            </button>
             <div className=" flex item-center p-2 rounded-md border-[1px">
               <button className="cursor-pointer outline-none duration-300 border-[1px] p-[0.6rem] rounded-md ">
                 <AiOutlinePlus />
