@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, Navigate } from "react-router-dom";
+import { RiHome3Line, RiInformationLine, RiContactsLine } from "react-icons/ri";
+import { FaHeart, FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import Darklight from "./DarkLight";
 import { useSelector } from "react-redux";
 import { logout } from "../firebase/firebaseConfig";
@@ -13,6 +15,7 @@ function Navbar() {
     logout();
     dispatch(removeUser());
   };
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -21,20 +24,28 @@ function Navbar() {
             Unsplash
           </Link>
         </div>
-        <div className="flex-none items-center gap-10 ">
+        <div className="flex-none items-center gap-10">
           <ul className="menu menu-horizontal flex items-center px-1 gap-2">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">
+                <RiHome3Line /> Home
+              </Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/about">
+                <RiInformationLine /> About
+              </Link>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact">
+                <RiContactsLine /> Contact
+              </Link>
             </li>
             <li>
               <div>
-                <Link to="/likedphotos">Liked Photos</Link>
+                <Link to="/likedphotos" className="flex gap-2 items-center">
+                  <FaHeart /> Liked Photos
+                </Link>
                 <span className="badge badge-accent text-white">
                   {likedPhotos.length}
                 </span>
@@ -45,19 +56,15 @@ function Navbar() {
                 className="border-[1px] border-white btn-sm flex items-center hover:border-black"
                 to="/login"
               >
-                Login
+                <FaSignInAlt /> Login
               </Link>
             </li>
             <li>
               {user && (
-                <button
-                  onClick={logoutUser}
-                  className="btn btn-sm btn-neutral "
-                >
-                  Log out
+                <button onClick={logoutUser} className="btn btn-sm btn-neutral">
+                  <FaSignOutAlt /> Log out
                 </button>
               )}
-
               {!user && <Navigate to="/login" />}
             </li>
           </ul>
