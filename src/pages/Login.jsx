@@ -18,9 +18,9 @@ function Login() {
       });
   };
 
-  if (user) {
-    return <Navigate to="/" replace />;
-  }
+  // if (user) {
+  //   return <Navigate to="/" replace />;
+  // }
 
   return (
     <div className="flex flex-col justify-center items-center h-screen ">
