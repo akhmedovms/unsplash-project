@@ -30,7 +30,7 @@ function App() {
   const routes = createBrowserRouter([
     {
       path: "/",
-      element: aUser ? <MainLayout /> : <Navigate to="/login" replace />,
+      element: <MainLayout />,
       children: [
         {
           index: true,
