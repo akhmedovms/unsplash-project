@@ -19,7 +19,7 @@ function Login() {
   };
 
   if (user) {
-    return <Navigate to="/Home" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return (
