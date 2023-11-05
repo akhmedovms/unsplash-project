@@ -1,10 +1,8 @@
 import Galerey from "../components/Galerey";
-import { useDispatch, useSelector } from "react-redux";
-import { removeLikedPhoto } from "../redux/features/unsplashSlice";
+import { useSelector } from "react-redux";
 
 function LikedPhotos() {
   const { likedPhotos } = useSelector((store) => store.unsplash);
-  const dispatch = useDispatch();
 
   console.log(likedPhotos);
   return (
