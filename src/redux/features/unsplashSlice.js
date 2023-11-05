@@ -24,6 +24,7 @@ const unsplashSlice = createSlice({
       state.likedPhotos = state.likedPhotos.filter(
         (image) => image.id !== payload.id
       );
+      localStorage.setItem("likedPhotos", JSON.stringify(state.likedPhotos));
     },
     addUser: (state, { payload }) => {
       state.user = payload;
