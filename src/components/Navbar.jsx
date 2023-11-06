@@ -91,7 +91,7 @@ function Navbar() {
                       <div>
                         <button
                           onClick={logoutUser}
-                          className="border-[1px] btn gap-1 hover:text-white hover:bg-gray-800 btn-sm flex items-center rounded-r-full"
+                          className="border-[1px] btn gap-1 hover:text-white hover:bg-gray-800 hover:border-white btn-sm flex items-center rounded-r-full"
                         >
                           <FaSignOutAlt /> Log out
                         </button>

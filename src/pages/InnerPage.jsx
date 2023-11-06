@@ -23,15 +23,17 @@ function InnerPage() {
     <div className="mt-10 p-3 shadow-lg">
       {splash && (
         <div key={id}>
-          <div className="flex gap-4 pb-5 items-center ">
-            <img
-              className="rounded-full object-cover w-[50px] h-[50px]"
-              src={splash.user.profile_image.large}
-              alt=""
-            />
-            <div className="mr-auto">
-              <p>{splash.user.name}</p>
-              <p>Avaiable for hire ✅</p>
+          <div className="flex pb-5 items-center">
+            <div className="flex gap-2 mr-auto">
+              <img
+                className="rounded-full object-cover w-[50px] h-[50px]"
+                src={splash.user.profile_image.large}
+                alt=""
+              />
+              <div className="mr-auto">
+                <p>{splash.user.name}</p>
+                <p>Avaiable for hire ✅</p>
+              </div>
             </div>
 
             <button
@@ -73,7 +75,7 @@ function InnerPage() {
               </button>
             </div>
             <div className="dropdown dropdown-end">
-              <button className="m-1 p-2 border-[1px]  rounded-md cursor-pointer">
+              <button className="m-1 p-[6px] border-[1px] rounded-md cursor-pointer">
                 Download
               </button>
               <ul className="border-[1] p-1 mt-4 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
@@ -109,7 +111,7 @@ function InnerPage() {
               />
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-between">
-              <div className="flex sm:flex-row gap-6 sm:gap-28 p-4 sm:p-6">
+              <div className="flex sm:flex-row gap-6 sm:gap-28 p-4 sm:pt-6 pl-2">
                 <p>
                   Views: <br />
                   <span>{Number(splash.views).toLocaleString()}</span>
@@ -123,7 +125,7 @@ function InnerPage() {
                   <span>{Number(splash.downloads).toLocaleString()}</span>
                 </p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 pr-2">
                 <button className="arrow-button gap-2 rounded-md px-3 py-1">
                   <FaShare />
                   Share
