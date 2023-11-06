@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 
 function MainLayout() {
   return (
-    <div className="align-element">
+    <div className="">
       <Navbar />
       <main className="align-element py-8">
         <Outlet />

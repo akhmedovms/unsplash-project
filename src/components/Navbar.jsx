@@ -51,26 +51,61 @@ function Navbar() {
                 </span>
               </div>
             </li>
-            <li>
-              <Link
-                className="border-[1px] border-white btn-sm flex items-center hover:border-black"
-                to="/login"
-              >
-                <FaSignInAlt /> Login
-              </Link>
-            </li>
-            <li>
-              {user && (
-                <button onClick={logoutUser} className="btn btn-sm btn-neutral">
-                  <FaSignOutAlt /> Log out
-                </button>
-              )}
-              {!user && <Navigate to="/login" />}
-            </li>
+            <div>
+              <Darklight />
+            </div>
+
+            {user ? (
+              <div className="dropdown dropdown-end cursor-pointer pl-3">
+                <div tabIndex={0} className="avatar">
+                  <div className="w-10 rounded-full ring ring-[#357EC6] ring-offset-base-100 ring-offset-2">
+                    <img src={user.photoURL} />
+                  </div>
+                </div>
+                <div
+                  tabIndex={0}
+                  className="dropdown-content text-center w-64 mt-2 z-[1] card card-compact bg-gray-800 p-2 shadow"
+                >
+                  <div className="card-body">
+                    <h3 className="text-[12px] text-white pb-2">
+                      {user.email}
+                    </h3>
+                    <div className="flex justify-center">
+                      <img className="rounded-full w-20" src={user.photoURL} />
+                    </div>
+                    <h3 className="text-white py-2">
+                      HI!{" "}
+                      {user.providerData.map((data) => {
+                        return <span>{data.displayName}</span>;
+                      })}
+                    </h3>
+                    <div className="flex justify-center gap-1">
+                      <div>
+                        <Link
+                          className="border-[1px] border-gray-800 gap-1 text-white hover:border-white transition btn-sm flex items-center rounded-l-full"
+                          to="/login"
+                        >
+                          <FaSignInAlt /> Login
+                        </Link>
+                      </div>
+                      <div>
+                        <button
+                          onClick={logoutUser}
+                          className="border-[1px] btn gap-1 hover:text-white hover:bg-gray-800 btn-sm flex items-center rounded-r-full"
+                        >
+                          <FaSignOutAlt /> Log out
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <Navigate to="/login" />
+              </div>
+            )}
           </ul>
-          <div>
-            <Darklight />
-          </div>
         </div>
       </div>
     </div>
